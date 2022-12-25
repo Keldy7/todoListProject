@@ -10,6 +10,7 @@
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#"
+      
     },
     "updates": {
       "fallbackToCacheTimeout": 0

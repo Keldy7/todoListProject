@@ -1,13 +1,13 @@
-import SIZES from "./index";
+import { SIZES } from ".";
 
-const regular = "Roboto-Regular";
-const bold = "Roboto-Bold";
-const medium = "Roboto-Medium";
+export const regular = "Roboto-Regular";
+export const bold = "Roboto-Bold";
+export const medium = "Roboto-Medium";
 
 
-const FONTS = {
+export const FONTS = {
     titreLarge: {
-        fontFamily: bold, 
+        fontFamily: bold,
         fontSize: SIZES.titreLarge
     },
     h1: {
@@ -31,10 +31,11 @@ const FONTS = {
         lineHeight: 22
     },
     h5: {
-        fontFamily: regular,
+        fontFamily: "Roboto-Regular",
         fontSize: SIZES.h5,
         lineHeight: 20
     },
 };
 
-export default { FONTS,regular,bold,medium};
+const theme = { FONTS,regular,bold,medium};
+export default theme;
