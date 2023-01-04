@@ -1,17 +1,15 @@
-import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
-import { Image, Text, View } from "react-native";
-import AppIntroSlider from "react-native-app-intro-slider";
-import { Connexion } from "./src/pages";
-import { COLORS, SIZES, DONNEES } from "./src/constants";
+import React, { useState } from "react"
+import { Image, SafeAreaView, Text, View } from "react-native"
+import AppIntroSlider from "react-native-app-intro-slider"
+import { COLORS, SIZES, DONNEES } from "./src/constants"
+import  {Accueil} from "./src/navigation"
+import { Menu } from "./src/pages"
+
 
 export default function App() {
   const [afficherMenu, setAfficherMenu] = useState(false);
 
-  //StatusBar.setStatusBarStyle("light");
-  //StatusBar.setStatusBarBackgroundColor(COLORS.jaune);
-
-  const bouton = (texte) => {
+  const btnDirection = (texte) => {
     return (
       <View
         style = {{
@@ -32,19 +30,22 @@ export default function App() {
   };
 
   if (afficherMenu) {
-    return <Connexion />
+    
+    return <Accueil />
+    // return <Menu />
+
   } else {
     return (
       <AppIntroSlider
         data = { DONNEES }
         renderItem = {({ item }) => {
           return (
-            <View
+            <SafeAreaView
               style = {{
                 flex: 1,
                 alignItems: "center",
                 padding: 15,
-                paddingTop: 70,
+                paddingTop: 50,
               }}
             >
               <Image
@@ -53,12 +54,12 @@ export default function App() {
                   resizeMode: "contain",
                   height: "70%",
                   width: "100%",
+                  //backgroundColor: 'rgb(188, 220, 226)'
                 }}
               />
               <Text
                 style = {{
                   fontWeight: "bold",
-                  paddingTop: SIZES.padding,
                   paddingBottom: SIZES.spacing,
                   color: COLORS.jauneOr,
                   fontSize: SIZES.h1,
@@ -76,74 +77,19 @@ export default function App() {
               >
                 {item.texte}
               </Text>
-            </View>
+              </SafeAreaView>
           );
         }}
         activeDotStyle = {{
-          backgroundColor: COLORS.noirGris,
+          backgroundColor: COLORS.gris,
           width: 3 * SIZES.spacing,
         }}
         showPrevButton
-        renderNextButton = {() => bouton("Suivant")}
-        renderPrevButton = {() => bouton("Précedent")}
-        renderDoneButton = {() => bouton("Terminé")}
+        renderNextButton = {() => btnDirection("Suivant")}
+        renderPrevButton = {() => btnDirection("Précedent")}
+        renderDoneButton = {() => btnDirection("Terminé")}
         onDone = {() => setAfficherMenu(true)}
       />
     );
   }
 }
-
-  /*_renderItem = ({ item }) => {
-    return (
-      <View style={{ flex: 1 }}>
-        <Image
-          source={item.image}
-          style={{
-            resizeMode: "contain",
-            height: "73%",
-            width: "100%",
-          }}
-        />
-        <Text
-          style={{
-            paddingTop: 25,
-            paddingBottom: 10,
-            fontSize: 23,
-            fontWeight: "bold",
-            color: "#21465b",
-          }}
-        >
-          {item.titre}
-        </Text>
-
-        <Text
-          style={{
-            textAlign: "center",
-            color: "#b5b5b5",
-            fontSize: 15,
-            paddingHorizontal: 30,
-          }}
-        >
-          {item.texte}
-        </Text>
-      </View>
-    );
-  };
-
-  render() {
-    if (this.state.showHomePage) {
-      return <App />;
-    } else
-      return (
-        <AppIntroSlider
-          renderItem={this._renderItem}
-          data={DONNEES}
-          activeDotStyle={{
-            backgroundColor: "#21465b",
-            width: 30,
-          }}
-        />
-      );
-  }
-}*/
-

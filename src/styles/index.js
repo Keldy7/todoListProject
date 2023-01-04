@@ -1,36 +1,78 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { COLORS, FONTS, SIZES } from '../constants';
+
+import { COLORS, SIZES } from "../constants"
 
 const STYLES = {
-    _container: {
-        width: '100%'
-    },
+  _container: {
+    width: "100%",
+    backgroundColor: COLORS.blancPale
+  },
 
-    _centrerAligner: {
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
+  _centrerAligner: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    _titre: {
-        color: COLORS.bluePale,
-        fontFamily: FONTS.bold
-    },
+  _row: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
 
-    _logo: {
-        marginTop: 15,
-        width: SIZES.largeur / 3,
-        height: SIZES.longueur / 5
-    },
+  _titre: {
+    padding: SIZES.spacing,
+    color: COLORS.bluePale,
+    fontWeight: "bold"
+  },
 
-    _btn: {
-        padding: SIZES.spacing,
-        width: SIZES.largeur / 1.25,
-        height: 5 * SIZES.spacing,
-        marginBottom: 3 * SIZES.spacing,
-        borderRadius: SIZES.radius,
-        justifyContent: 'center'
-    },
+  _logo: {
+    marginTop: 15,
+    width: SIZES.largeur / 3,
+    height: SIZES.longueur / 5,
+  },
+
+  _navBar: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingBottom: SIZES.base,
+	
+  },
+
+  _bgIcon: {
+	backgroundColor: COLORS.blancCasse,
+	borderRadius: 5,
+  },
+
+  _btn: {
+    padding: 2 * SIZES.spacing,
+    flexDirection: "row",
+    paddingHorizontal: SIZES.spacing,
+    backgroundColor: COLORS.bluePale,
+    borderRadius: SIZES.radius,
+    marginBottom: SIZES.spacing,
+  },
+
+  _formInput: {
+    flexDirection: "row",
+    marginTop: SIZES.spacing,
+    paddingBottom: 5
+  },
+
+  _formInputTitre: {
+    color: COLORS.bluePale,
+	  fontSize: SIZES.font,
+	  fontWeight: "bold",
+  },
+
+  _formInputTexte: {
+    flex: 1,
+    padding: SIZES.spacing,
+    color: COLORS.noir,
+    fontSize: 16,
+    borderWidth: 1.5,
+    borderColor: COLORS.jauneOr,
+    borderRadius: SIZES.radius,
+    backgroundColor: COLORS.blancCasse
+
+  }
 };
 
 export default STYLES;

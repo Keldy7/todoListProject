@@ -1,5 +1,8 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import Bouton from '../../components/bouton'
+import CreerTaches from '../CreerTaches'
+
 
 const Connexion = () => {
   return (
@@ -11,6 +14,8 @@ const Connexion = () => {
       }}
     >
       <Text>Connexion</Text>
+      <Bouton btn_texte= {"Se connecter"} />
+      <CreerTaches />
     </View>
   )
 }
