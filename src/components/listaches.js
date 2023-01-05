@@ -9,17 +9,19 @@ import React from "react";
 import { COLORS, DONNEES } from "../constants";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import STYLES from "../styles";
+import { useNavigation } from "@react-navigation/native";
+
 
 const Listing = () => {
+  const navigation = useNavigation(); 
   return (
-    <View style={{ paddingTop: 10 }}>
-      <Text>Listing</Text>
+    <View style={{ paddingTop: 15 }}>
       <FlatList
         data={DONNEES}
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.item}
-            onPress={() => console.log("ok")}
+            onPress={() => navigation.navigate('Détails')}
           >
             <View style={styles.itemLeft}>
               <View>
@@ -30,7 +32,7 @@ const Listing = () => {
                   style={{ width: 45 }}
                 />
               </View>
-              <Text style={styles.itemText}>{item.titre}</Text>
+                <Text style={styles.itemText}>{item.titre}</Text>
             </View>
             <View>
               <Icon
@@ -49,18 +51,17 @@ const Listing = () => {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: "#FFF",
+    backgroundColor: COLORS.grisClair,
     padding: 15,
     borderRadius: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: 20,
+    marginBottom: 13,
   },
   itemLeft: {
     flexDirection: "row",
     alignItems: "center",
-    flexWrap: "wrap",
   },
   itemText: {
     maxWidth: "80%",

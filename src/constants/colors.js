@@ -12,18 +12,20 @@ const COLORS = {
     jaune: '#FFD700',
     jauneOr: '#FDB90B',
 
-    //Erreur
+    //Utilitaires
     rouge: "#FF6666",
+    warning: "#FDAC71",
+    succes: "#6ADAA4",
 
     //Noir et ses variantes
     noir: '#000000',
     noirFonce: '#1A1A1A',
     gris: '#625B5B',
-    grisClair: '',
+    grisClair: '#F7F7F8',
 
     blanc: '#FFFFFF',
-    blancCasse: 'rgba(213, 214, 221)',
-    blancPale: 'rgba(243, 243, 221)'
+    //shadow color
+    shadow: '0 .5rem 1rem rgba(0,0,0,.1)',
 
 }
 

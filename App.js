@@ -1,9 +1,10 @@
 import React, { useState } from "react"
-import { Image, SafeAreaView, Text, View } from "react-native"
+import { Image, SafeAreaView, Text, TouchableOpacity, View } from "react-native"
 import AppIntroSlider from "react-native-app-intro-slider"
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { COLORS, SIZES, DONNEES } from "./src/constants"
-import  {Accueil} from "./src/navigation"
-import { Menu } from "./src/pages"
+import  {TabBar} from "./src/navigation"
+import STYLES from "./src/styles";
 
 
 export default function App() {
@@ -28,12 +29,25 @@ export default function App() {
       </View>
     );
   };
+  const BtnTerminer = () => {
+    return (
+      <TouchableOpacity
+        onPress = {() => setAfficherMenu(true)}
+      >
+        <View style = {STYLES._bgIcon}>
+          <Icon
+            name="arrow-right"
+            size={40}
+            color={COLORS.bluePale}
+            style={{ width: 45 }}
+          />
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   if (afficherMenu) {
-    
-    return <Accueil />
-    // return <Menu />
-
+    return <TabBar />
   } else {
     return (
       <AppIntroSlider
@@ -44,15 +58,16 @@ export default function App() {
               style = {{
                 flex: 1,
                 alignItems: "center",
-                padding: 15,
-                paddingTop: 50,
+                padding: 10,
+                paddingTop: 30,
               }}
             >
+              <BtnTerminer />
               <Image
                 source = {item.uri}
                 style = {{
                   resizeMode: "contain",
-                  height: "70%",
+                  height: "60%",
                   width: "100%",
                   //backgroundColor: 'rgb(188, 220, 226)'
                 }}

@@ -1,65 +1,81 @@
-import { View, Text } from "react-native";
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
-import React from "react";
-import { Connexion, Menu } from "../pages";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import React from 'react';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
-const MainDrawer = createDrawerNavigator();
+import CustomDrawer from '../components/CustomDrawer';
 
-//Fonction qui affiche l'icône dans le drawer en fonction du nom de l'interface désignée en parametres
-const icons = (page) => {
-  switch (page) {
-    case "Toutes les taches":
-      return "bookmark";
-    case "Travail":
-      return "job";
-    case "Personnel":
-      return "life";
-    default:
-      return undefined;
-  }
-};
-const ContentDrawer = props => {
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import ProfileScreen from '../screens/ProfileScreen';
+import MessagesScreen from '../screens/MessagesScreen';
+import MomentsScreen from '../screens/MomentsScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+
+import TabNavigator from './TabNavigator';
+
+const Drawer = createDrawerNavigator();
+
+const AuthStack = () => {
   return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
-    </DrawerContentScrollView>
-  )
-}
-const Options = () => {
-  return (
-    <MainDrawer.Navigator
-      //drawerContent={props => <ContentDrawer {...props} />}
+    <Drawer.Navigator
+      drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: false,
-        drawerActiveBackgroundColor: "#aa18ea",
-        drawerActiveTintColor: "#fff",
-        drawerInactiveTintColor: "#333",
+        drawerActiveBackgroundColor: '#aa18ea',
+        drawerActiveTintColor: '#fff',
+        drawerInactiveTintColor: '#333',
         drawerLabelStyle: {
           marginLeft: -25,
-          fontFamily: "Roboto-Medium",
+          fontFamily: 'Roboto-Medium',
           fontSize: 15,
         },
-      }}
-    >
-      <MainDrawer.Screen
-        name="ConnexionPage"
-        component={Connexion}
+      }}>
+      <Drawer.Screen
+        name="Home"
+        component={TabNavigator}
         options={{
-          drawerIcon: () => <Icon name="home-outline" size={22} color="red" />,
-        }}
-      />
-      <MainDrawer.Screen
-        name="HomePage"
-        component={Menu}
-        options={{
-          drawerIcon: () => (
-            <Icon name="person-outline" size={22} color="red" />
+          drawerIcon: ({color}) => (
+            <Ionicons name="home-outline" size={22} color={color} />
           ),
         }}
       />
-    </MainDrawer.Navigator>
+      <Drawer.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          drawerIcon: ({color}) => (
+            <Ionicons name="person-outline" size={22} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Messages"
+        component={MessagesScreen}
+        options={{
+          drawerIcon: ({color}) => (
+            <Ionicons name="chatbox-ellipses-outline" size={22} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Moments"
+        component={MomentsScreen}
+        options={{
+          drawerIcon: ({color}) => (
+            <Ionicons name="timer-outline" size={22} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          drawerIcon: ({color}) => (
+            <Ionicons name="settings-outline" size={22} color={color} />
+          ),
+        }}
+      />
+    </Drawer.Navigator>
   );
 };
 
-export default Options;
+export default AuthStack;

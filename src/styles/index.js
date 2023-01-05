@@ -1,4 +1,5 @@
 
+import { Platform } from "react-native";
 import { COLORS, SIZES } from "../constants"
 
 const STYLES = {
@@ -37,8 +38,14 @@ const STYLES = {
   },
 
   _bgIcon: {
-	backgroundColor: COLORS.blancCasse,
-	borderRadius: 5,
+    width: 55,
+    height: 55,
+    backgroundColor: COLORS.jauneOr,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: Platform.OS == "android" ? 50 : 30
+  
   },
 
   _btn: {
@@ -72,6 +79,18 @@ const STYLES = {
     borderRadius: SIZES.radius,
     backgroundColor: COLORS.blancCasse
 
+  },
+
+  _grid: {
+    height: 125,
+    backgroundColor: COLORS.blanc,
+    borderRadius: 10,
+    margin: 2,
+  },
+
+  _gridDetails: {
+    paddingHorizontal: 10,
+    alignItems: "center",
   }
 };
 
