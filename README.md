@@ -38,3 +38,5 @@ ou
 ```
 expo start
 ```
+&nbsp;
+NB: **L'INTÉGRALITÉ DU CODE SOURCE EST SUR LA BRANCHE *aude***
