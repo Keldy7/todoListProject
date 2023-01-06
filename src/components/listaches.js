@@ -5,15 +5,17 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from "react-native";
-import React from "react";
-import { COLORS, DONNEES } from "../constants";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import STYLES from "../styles";
-import { useNavigation } from "@react-navigation/native";
+import React from "react"
+import { COLORS, DONNEES } from "../constants"
+import Icon from "@expo/vector-icons/MaterialCommunityIcons"
+//import Checkbox from 'expo-checkbox'
+import STYLES from "../styles"
+import { useNavigation } from "@react-navigation/native"
 
 
 const Listing = () => {
   const navigation = useNavigation(); 
+  //const [cocher, setCocher] = useState(false);
   return (
     <View style={{ paddingTop: 15 }}>
       <FlatList
@@ -31,6 +33,12 @@ const Listing = () => {
                   color={COLORS.jauneOr}
                   style={{ width: 45 }}
                 />
+                {/* <Checkbox
+                  value={cocher}
+                  onValueChange={setCocher}
+                  style={{ alignSelf: 'center' }}
+                  color={cocher ? COLORS.jauneOr : undefined}
+                /> */}
               </View>
                 <Text style={styles.itemText}>{item.titre}</Text>
             </View>

@@ -8,8 +8,10 @@ import STYLES from "./src/styles";
 
 
 export default function App() {
+
   const [afficherMenu, setAfficherMenu] = useState(false);
 
+  //Bouton pour faire défiler les img d'introduction
   const btnDirection = (texte) => {
     return (
       <View
@@ -29,12 +31,18 @@ export default function App() {
       </View>
     );
   };
+
+  //Bouton pour sauter les images d'introduction
   const BtnTerminer = () => {
     return (
       <TouchableOpacity
         onPress = {() => setAfficherMenu(true)}
       >
-        <View style = {STYLES._bgIcon}>
+        <View style = {[
+          STYLES._bgIcon,
+          STYLES._centrerAligner, { 
+          backgroundColor: COLORS.jauneOr,
+        }]}>
           <Icon
             name="arrow-right"
             size={40}
@@ -47,7 +55,10 @@ export default function App() {
   };
 
   if (afficherMenu) {
-    return <TabBar />
+    /*Lorsque les 3 images d'introduction ont été
+      slidées, on affiche la barre de navigation du bas
+    */
+    return <TabBar /> 
   } else {
     return (
       <AppIntroSlider
@@ -69,7 +80,6 @@ export default function App() {
                   resizeMode: "contain",
                   height: "60%",
                   width: "100%",
-                  //backgroundColor: 'rgb(188, 220, 226)'
                 }}
               />
               <Text
@@ -95,6 +105,7 @@ export default function App() {
               </SafeAreaView>
           );
         }}
+        //Lorsque l'image est active, l'indicateur de pages passe au gris
         activeDotStyle = {{
           backgroundColor: COLORS.gris,
           width: 3 * SIZES.spacing,

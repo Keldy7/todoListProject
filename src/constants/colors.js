@@ -5,12 +5,13 @@ const COLORS = {
     bleuCiel: '#00A8E8',
     bleuClair: '#7FDBFF',
     bleuFonce: '#0074D9',
-    bleuFonce2: '#001f3f',
-
+    bleuNuit: '#001f3f',
+    bleuSec: "rgb(188, 220, 226)",
 
     //Jaune et ses variantes
     jaune: '#FFD700',
     jauneOr: '#FDB90B',
+    jauneClair: "#F0E68C",
 
     //Utilitaires
     rouge: "#FF6666",
@@ -22,11 +23,10 @@ const COLORS = {
     noirFonce: '#1A1A1A',
     gris: '#625B5B',
     grisClair: '#F7F7F8',
+    grisLeger: '#C6C6CC',
 
     blanc: '#FFFFFF',
-    //shadow color
-    shadow: '0 .5rem 1rem rgba(0,0,0,.1)',
-
+    
 }
 
 export default COLORS;

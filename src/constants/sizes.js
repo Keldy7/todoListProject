@@ -12,7 +12,6 @@ const SIZES = {
     spacing: 10,
 
     //Tailles de la police
-    
     titreLarge: 50,
     h1: 30,
     h2: 22,

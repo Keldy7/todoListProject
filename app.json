@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "JeRetiens",
+    "name": "TimeToDo",
     "slug": "projetclassRN",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +23,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/images/adaptive-icon.png",
+        "foregroundImage": "./src/assets/images/splash.png",
         "backgroundColor": "#FFFFFF"
       }
     },

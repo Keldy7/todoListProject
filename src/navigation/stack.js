@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import Icone from "@expo/vector-icons/MaterialCommunityIcons"
 import Icon from "@expo/vector-icons/Ionicons"
 import { createStackNavigator } from "@react-navigation/stack"
-import { Connexion, CreerTaches, Menu } from "../pages"
+import { Taches, Connexion, CreerTaches, Menu } from "../pages"
 import { COLORS, SIZES } from "../constants"
-import { Text, TouchableOpacity, View } from "react-native"
+import { TouchableOpacity, View } from "react-native"
 import STYLES from "../styles"
 import DetailsTaches from "../pages/DetailsTaches"
 import { IconDroit, IconRetour } from "../components/icone"
@@ -45,14 +45,22 @@ const Accueil = () => {
             )
           })} 
         />
-        <RootStack.Screen
-          name="ConnexionPage"
-          component={Connexion}
-        />
+
         <RootStack.Screen
           name="Créer"
           component={CreerTaches}
+          options = {() => ({
+            title: "Créer une tâche",
+            headerTitleStyle: { color: COLORS.jauneOr, fontSize: SIZES.h2, fontWeight: "bold" },
+            headerLeft: () => (
+              <IconRetour />
+            ),
+            headerRight: () => (
+              <IconDroit nomIcone = "check" navig = "delete" />
+            )
+          })} 
         />
+
         <RootStack.Screen
           name="Détails"
           component={DetailsTaches}
@@ -64,6 +72,18 @@ const Accueil = () => {
             ),
             headerRight: () => (
               <IconDroit nomIcone = "trash-outline" navig = "delete" />
+            )
+          })} 
+        />
+
+        <RootStack.Screen
+          name="ListeTâches"
+          component={Taches}
+          options = {() => ({
+            title: "Liste des tâches",
+            headerTitleStyle: { color: COLORS.jauneOr, fontSize: SIZES.h2, fontWeight: "bold" },
+            headerLeft: () => (
+              <IconRetour />
             )
           })} 
         />
