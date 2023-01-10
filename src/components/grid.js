@@ -6,10 +6,10 @@ import STYLES from "../styles";
 
 
 const Grille = (props) => {
-  const { bgColor, nomIcone, label, width } = props;
+  const { bgColor, nomIcone, label, width, btnPress } = props;
   return (
     <View style={[STYLES._grid, { flex: 1, width: width }]}>
-      <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("ok")}>
+      <TouchableOpacity activeOpacity={0.7} onPress={btnPress}>
         <View style={[styles.image, { backgroundColor: bgColor, alignItems: 'center' }]}>
         <Icon name={nomIcone} size={90} color={COLORS.blanc} />
         </View>

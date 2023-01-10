@@ -1,6 +1,7 @@
 
 import { Platform } from "react-native";
 import { COLORS, SIZES } from "../constants"
+import { FONTS } from "../constants/fonts";
 
 const STYLES = {
   _container: {
@@ -19,9 +20,10 @@ const STYLES = {
   },
 
   _titre: {
-    padding: SIZES.spacing,
     color: COLORS.bluePale,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    ...FONTS.h1,
+    lineHeight: 36
   },
 
   _logo: {
@@ -40,12 +42,7 @@ const STYLES = {
   _bgIcon: {
     width: 55,
     height: 55,
-    backgroundColor: COLORS.jauneOr,
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: Platform.OS == "android" ? 50 : 30
-  
+    borderRadius: SIZES.radius * 2.5,
   },
 
   _btn: {
@@ -85,12 +82,34 @@ const STYLES = {
     height: 125,
     backgroundColor: COLORS.blanc,
     borderRadius: 10,
-    margin: 2,
+    margin: 4,
   },
 
   _gridDetails: {
     paddingHorizontal: 10,
     alignItems: "center",
+  },
+
+  _sectionDetailTache: {
+    paddingTop: SIZES.spacing,
+    paddingBottom: SIZES.spacing
+  },
+
+  _demiSectionDetailTache: {
+    flexDirection: "row",
+    alignItems: 'center',
+    paddingTop: SIZES.base
+  },
+
+  _labelDetailTache: {
+    paddingLeft: SIZES.padding / 2,
+    ...FONTS.h3
+  },
+
+  _dispoWrap: {
+    flexDirection:'row',
+    flexWrap: "wrap",
+    gap: '1rem',
   }
 };
 

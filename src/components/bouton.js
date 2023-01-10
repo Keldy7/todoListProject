@@ -5,12 +5,10 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons"
 import STYLES from "../styles";
 
 const Bouton = (props) => {
-  const {btn_texte} = props;
+  const {btn_texte, btn_press} = props;
   return (
         <TouchableOpacity
-            onPress = {() => {
-                console.log("Bouton pressé");
-            }}
+            onPress = {btn_press}
             style = {[STYLES._btn, STYLES._centrerAligner]}
         >
             {/* <Icon name="account" size={30} color = {COLORS.jauneOr} style={{ width: 30 }} /> */}

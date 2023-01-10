@@ -19,15 +19,15 @@ const TabBar = () => {
         screenOptions={
             ({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
-                    let iconName;
+                    let iconNom;
                     if (route.name === 'Accueil') {
-                        iconName = focused ? 'home' : 'home-outline';
+                      iconNom = focused ? 'home' : 'home-outline';
                     } else if (route.name === 'Paramètres') {
-                        iconName = focused ? 'settings' : 'settings-outline';
+                      iconNom = focused ? 'settings' : 'settings-outline';
                     } else if (route.name === 'Tâches') {
-                      iconName = focused ? 'document-text' : 'document-text-outline';
+                      iconNom = focused ? 'document-text' : 'document-text-outline';
                   }
-                    return <Icon name={iconName} size={size} color={color} />;
+                    return <Icon name={iconNom} size={size} color={color} />;
                 },
                 tabBarActiveTintColor: '#FDB90B',
                 tabBarInactiveTintColor: '#625B5B',

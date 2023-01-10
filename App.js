@@ -5,6 +5,8 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { COLORS, SIZES, DONNEES } from "./src/constants"
 import  {TabBar} from "./src/navigation"
 import STYLES from "./src/styles";
+import { Provider } from "react-redux";
+import { store } from "./src/redux/store";
 
 
 export default function App() {
@@ -58,7 +60,11 @@ export default function App() {
     /*Lorsque les 3 images d'introduction ont été
       slidées, on affiche la barre de navigation du bas
     */
-    return <TabBar /> 
+    return (
+      <Provider store = {store}>
+        <TabBar />
+      </Provider>
+    ) 
   } else {
     return (
       <AppIntroSlider

@@ -8,6 +8,8 @@ import { TouchableOpacity, View } from "react-native"
 import STYLES from "../styles"
 import DetailsTaches from "../pages/DetailsTaches"
 import { IconDroit, IconRetour } from "../components/icone"
+import { EnCoursTaches, NonDemarrerTaches, TerminerTaches} from "../pages/CategoriesTaches"
+
 
 const RootStack = createStackNavigator();
 
@@ -81,6 +83,42 @@ const Accueil = () => {
           component={Taches}
           options = {() => ({
             title: "Liste des tâches",
+            headerTitleStyle: { color: COLORS.jauneOr, fontSize: SIZES.h2, fontWeight: "bold" },
+            headerLeft: () => (
+              <IconRetour />
+            )
+          })} 
+        />
+
+        <RootStack.Screen
+          name="ListeTâchesNonDemarrees"
+          component={NonDemarrerTaches}
+          options = {() => ({
+            title: "Tâches non demarrées",
+            headerTitleStyle: { color: COLORS.jauneOr, fontSize: SIZES.h2, fontWeight: "bold" },
+            headerLeft: () => (
+              <IconRetour />
+            )
+          })} 
+        />
+
+        <RootStack.Screen
+          name="ListeTâchesEncours"
+          component={EnCoursTaches}
+          options = {() => ({
+            title: "Tâches en cours",
+            headerTitleStyle: { color: COLORS.jauneOr, fontSize: SIZES.h2, fontWeight: "bold" },
+            headerLeft: () => (
+              <IconRetour />
+            )
+          })} 
+        />
+
+        <RootStack.Screen
+          name="ListeTâchesTerminees"
+          component={TerminerTaches}
+          options = {() => ({
+            title: "Tâches terminées",
             headerTitleStyle: { color: COLORS.jauneOr, fontSize: SIZES.h2, fontWeight: "bold" },
             headerLeft: () => (
               <IconRetour />

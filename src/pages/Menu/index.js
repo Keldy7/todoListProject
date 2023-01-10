@@ -18,18 +18,21 @@ const Menu = ({navigation}) => {
             bgColor={COLORS.rouge}
             nomIcone="note-remove-outline"
             label="Non demarré"
+            btnPress = {() => navigation.navigate("ListeTâchesNonDemarrees")}
           />
           {/* Bloc de tâches en cours */}
           <Grille
             bgColor={COLORS.warning}
             nomIcone="note-alert-outline"
+            btnPress = {() => navigation.navigate("ListeTâchesEncours")}
             label="En cours"
           />
           {/* Bloc de tâches terminées */}
           <Grille
             bgColor={COLORS.succes}
             nomIcone="note-check-outline"
-            label="Terminé"
+            btnPress = {() => navigation.navigate("ListeTâchesTerminees")}
+            label="Terminée"
           />
         </View>
 

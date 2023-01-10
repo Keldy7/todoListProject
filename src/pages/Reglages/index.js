@@ -17,13 +17,13 @@ import {
       <SafeAreaView style={[STYLES._container, { paddingTop: 25 }]}>
         <View style={[STYLES._centrerAligner, { padding: SIZES.padding }]}>
           <Avatar.Icon
-            size={190}
+            size={180}
             icon="account"
             style={{ backgroundColor: COLORS.bluePale }}
           />
         </View>
         <ScrollView>
-          <View style={{ margin: 5 }}>
+          <View style={{ margin: 3 }}>
             <TouchableOpacity
               style={styles.item}
               onPress={() => alert("Pas disponible pour l'instant")}
@@ -49,7 +49,7 @@ import {
               </View>
             </TouchableOpacity>
           </View>
-          <View style={{ margin: 5 }}>
+          <View style={{ margin: 3 }}>
             <TouchableOpacity
               style={styles.item}
               onPress={() => alert("Pas disponible pour l'instant")}
@@ -75,7 +75,7 @@ import {
               </View>
             </TouchableOpacity>
           </View>
-          <View style={{ margin: 5 }}>
+          <View style={{ margin: 3 }}>
             <TouchableOpacity
               style={styles.item}
               onPress={() => alert("Pas disponible pour l'instant")}
@@ -101,7 +101,7 @@ import {
               </View>
             </TouchableOpacity>
           </View>
-          <View style={{ margin: 5 }}>
+          <View style={{ margin: 3 }}>
             <TouchableOpacity
               style={styles.item}
               onPress={() => alert("Pas disponible pour l'instant")}
@@ -127,7 +127,7 @@ import {
               </View>
             </TouchableOpacity>
           </View>
-          <View style={{ margin: 5 }}>
+          <View style={{ margin: 3 }}>
             <TouchableOpacity
               style={styles.item}
               onPress={() => alert("Pas disponible pour l'instant")}

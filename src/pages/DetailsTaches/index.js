@@ -7,6 +7,13 @@ import { COLORS, FONTS, SIZES } from "../../constants";
 import Bouton from "../../components/bouton";
 
 const DetailsTaches = () => {
+  // const tacheModifiee = {
+  //   titreTache: titre,
+  //   descriptionTache: description,
+  //   dateD: dateDebut,
+  //   dateF: dateFin,
+  //   statut: statut,
+  // };
   return (
     <SafeAreaView style = {[STYLES._container, { paddingTop: 10 }]}>
       <ScrollView style = {{ padding: SIZES.padding }}>
