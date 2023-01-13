@@ -36,12 +36,6 @@ const CreerTaches = () => {
     });
   })
 
-  const [titre, setTitre] = useState("");
-  const [description, setDescription] = useState("");
-  const [dateDebut, setDateDebut] = useState("");
-  const [dateFin, setDateFin] = useState("");
-
-
   // Gestion de la date de debut
   const [calendrierDebutVisible, setCalendrierDebutVisible] = useState(false);
   const [selectedDateDebut, setSelectedDateDebut] = useState();
@@ -82,10 +76,15 @@ const CreerTaches = () => {
   };
 
 
+  const [titre, setTitre] = useState("");
+  const [description, setDescription] = useState("");
+  const [dateDebut, setDateDebut] = useState("");
+  const [dateFin, setDateFin] = useState("");
+
   const dispatch = useDispatch();
   const liste = useSelector(state => state.taches.taches);
   
-  const CreerTache = async () => {
+  const CreerNewTache = async () => {
 
     //Caractéristiques d'une nouvelle tâche
     const nouvelleTache = {
@@ -225,7 +224,7 @@ const CreerTaches = () => {
           (dateDebut > dateFin) || (titre == "") || (dateDebut == "" || dateFin == "") ? (
               <Text style = {STYLES._msgErreur}>  Les valeurs des champs doivent être correctement saisies </Text>
           ) : (
-            <Bouton btn_texte = {"Créer"} btn_press = {CreerTache} />
+            <Bouton btn_texte = {"Créer"} btn_press = {CreerNewTache} />
           )
         }
       </ScrollView>

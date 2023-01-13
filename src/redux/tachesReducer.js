@@ -11,14 +11,14 @@ export const tacheSlice = createSlice({
     },
 
     //Reducer de modification
-    modifierTache: (state) => {
-      state.taches = state.taches.map((tache) => {
+    modifierTache: (state, action) => {
+      const taches = state.taches.map((tache) => {
         if (tache.id === action.payload.id) {
-          state.taches = action.payload;
-          console.log(state.taches);
+          return { ...tache, ...action.payload };
         }
         return tache;
       });
+      return { ...state, taches };
     },
 
     //Reducer de suppression
