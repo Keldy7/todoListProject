@@ -1,9 +1,13 @@
 import React, { useState} from 'react'
 import { View, Text } from 'react-native'
-import { COLORS, SIZES } from '../constants'
+import { COULEURS, SIZES } from '../constants'
 import STYLES from '../styles'
 import DatePicker from 'react-native-datepicker'
 
+/*
+    Composant Calendrier comportant les zones de saisies 
+    de date de début et de date de fin
+*/
 const Calendrier = () => {
     const [dateDebut, setDateDebut] = useState(new Date());
     const [dateFin, setDateFin] = useState(new Date());
@@ -11,6 +15,7 @@ const Calendrier = () => {
     <View style= {STYLES._row}>
         <View>
         <Text style = {[STYLES._titre, {fontSize: SIZES.h2}]}>{"Date début"}</Text>
+            {/* Date de début */}
             <DatePicker
                 date={dateDebut}
                 onDateChange={setDateDebut}
@@ -27,13 +32,13 @@ const Calendrier = () => {
                         top: 2
                     },
                     dateInput: {
-                        borderColor: COLORS.jauneOr,
+                        borderColor: COULEURS.jauneOr,
                         alignItems: 'center',
                         borderWidth: 1.5,
                         borderRadius: SIZES.radius
                     },
                     placeholderText: {
-                        color: COLORS.grisLeger,
+                        color: COULEURS.grisLeger,
                         fontSize: 15
                     },
                     dateText: {
@@ -44,6 +49,7 @@ const Calendrier = () => {
         </View>
         <View>
         <Text style = {[STYLES._titre, {fontSize: SIZES.h2}]}>{"Date fin"}</Text>
+            {/* Date de fin */}
             <DatePicker
                 mode = "date"
                 placeholder = "Ex: 19/01/2023"
@@ -58,13 +64,13 @@ const Calendrier = () => {
                         top: 2
                     },
                     dateInput: {
-                        borderColor: COLORS.jauneOr,
+                        borderColor: COULEURS.jauneOr,
                         alignItems: 'center',
                         borderWidth: 1.5,
                         borderRadius: SIZES.radius
                     },
                     placeholderText: {
-                        color: COLORS.grisLeger,
+                        color: COULEURS.grisLeger,
                         fontSize: 15
                     },
                     dateText: {

@@ -3,7 +3,7 @@ import "react-native-gesture-handler";
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
 import { Connexion, Menu } from "../pages";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import { FONTS } from "../constants";
+
 
 const MainDrawer = createDrawerNavigator();
 
@@ -38,7 +38,6 @@ const Options = () => {
         drawerInactiveTintColor: "#333",
         drawerLabelStyle: {
           marginLeft: -25,
-          fontFamily: FONTS.medium,
           fontSize: 15,
         },
       }}

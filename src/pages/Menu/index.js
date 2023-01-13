@@ -1,9 +1,10 @@
 import React from "react";
 import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
-import { COLORS, SIZES } from "../../constants";
+import { COULEURS, SIZES } from "../../constants";
 import STYLES from "../../styles";
 import Listing from "../../components/listaches";
 import Grille from "../../components/grid";
+
 
 //Menu principal de TimeToDo
 const Menu = ({navigation}) => {
@@ -15,21 +16,21 @@ const Menu = ({navigation}) => {
         <View style={[STYLES._row, { alignItems: "center", marginBottom: 10 }]}>
           {/* Bloc de tâches non demarrées */}
           <Grille
-            bgColor={COLORS.rouge}
+            bgColor={COULEURS.rouge}
             nomIcone="note-remove-outline"
-            label="Non demarré"
+            label="Non demarrée"
             btnPress = {() => navigation.navigate("ListeTâchesNonDemarrees")}
           />
           {/* Bloc de tâches en cours */}
           <Grille
-            bgColor={COLORS.warning}
+            bgColor={COULEURS.warning}
             nomIcone="note-alert-outline"
             btnPress = {() => navigation.navigate("ListeTâchesEncours")}
             label="En cours"
           />
           {/* Bloc de tâches terminées */}
           <Grille
-            bgColor={COLORS.succes}
+            bgColor={COULEURS.succes}
             nomIcone="note-check-outline"
             btnPress = {() => navigation.navigate("ListeTâchesTerminees")}
             label="Terminée"
@@ -37,13 +38,13 @@ const Menu = ({navigation}) => {
         </View>
 
         {/* Liste de tâches du jour */}
-        <View style={{ backgroundColor: "#FFF", borderRadius: 15, padding: 8 }}>
+        <View style={{ backgroundColor: COULEURS.blanc, borderRadius: 15, padding: 8 }}>
           <View style={[STYLES._row, { alignItems: "center", paddingTop: 15 }]}>
             <Text style={[STYLES._formInputTitre, { fontSize: 20 }]}>
               {"Tâches d'aujourd'hui"}
             </Text>
             <TouchableOpacity onPress={() => navigation.navigate('ListeTâches')}>
-              <Text style={{ color: COLORS.gris }}> Tout Voir</Text>
+              <Text style={{ color: COULEURS.gris }}> Tout Voir</Text>
             </TouchableOpacity>
           </View>
           <Listing />

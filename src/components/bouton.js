@@ -1,23 +1,25 @@
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
-import { COLORS } from "../constants";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons"
+import { COULEURS } from "../constants";
 import STYLES from "../styles";
 
-const Bouton = (props) => {
+/*
+    Composant Bouton qui a pour props le texte à afficher sur le bouton
+    et l'interface à afficher lorsque le bouton est actionné
+*/
+const Bouton = props => {
   const {btn_texte, btn_press} = props;
   return (
         <TouchableOpacity
             onPress = {btn_press}
             style = {[STYLES._btn, STYLES._centrerAligner]}
         >
-            {/* <Icon name="account" size={30} color = {COLORS.jauneOr} style={{ width: 30 }} /> */}
             <Text
                 style = {{
                     textAlign: "center",
                     fontWeight: "700",
                     fontSize: 18,
-                    color: COLORS.blanc
+                    color: COULEURS.blanc
                 }}
             >
                 {btn_texte}

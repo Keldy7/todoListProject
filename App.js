@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Image, SafeAreaView, Text, TouchableOpacity, View } from "react-native"
 import AppIntroSlider from "react-native-app-intro-slider"
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import { COLORS, SIZES, DONNEES } from "./src/constants"
+import { COULEURS, SIZES, DONNEES } from "./src/constants"
 import  {TabBar} from "./src/navigation"
 import STYLES from "./src/styles";
 import { Provider } from "react-redux";
@@ -23,7 +23,7 @@ export default function App() {
       >
         <Text
           style = {{
-            color: COLORS.bluePale,
+            color: COULEURS.bluePale,
             fontWeight: "600",
             fontSize: SIZES.h3,
           }}
@@ -43,12 +43,12 @@ export default function App() {
         <View style = {[
           STYLES._bgIcon,
           STYLES._centrerAligner, { 
-          backgroundColor: COLORS.jauneOr,
+          backgroundColor: COULEURS.jauneOr,
         }]}>
           <Icon
             name="arrow-right"
             size={40}
-            color={COLORS.bluePale}
+            color={COULEURS.bluePale}
             style={{ width: 45 }}
           />
         </View>
@@ -92,7 +92,7 @@ export default function App() {
                 style = {{
                   fontWeight: "bold",
                   paddingBottom: SIZES.spacing,
-                  color: COLORS.jauneOr,
+                  color: COULEURS.jauneOr,
                   fontSize: SIZES.h1,
                 }}
               >
@@ -103,7 +103,7 @@ export default function App() {
                   textAlign: "center",
                   paddingHorizontal: 3 * SIZES.spacing,
                   fontSize: 15,
-                  color: COLORS.noir,
+                  color: COULEURS.noir,
                 }}
               >
                 {item.texte}
@@ -113,7 +113,7 @@ export default function App() {
         }}
         //Lorsque l'image est active, l'indicateur de pages passe au gris
         activeDotStyle = {{
-          backgroundColor: COLORS.gris,
+          backgroundColor: COULEURS.gris,
           width: 3 * SIZES.spacing,
         }}
         showPrevButton

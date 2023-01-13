@@ -1,37 +1,41 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Icone from "@expo/vector-icons/MaterialCommunityIcons";
 import Icon from "@expo/vector-icons/Ionicons";
-import { COLORS } from "../constants";
+import { COULEURS } from "../constants";
 import STYLES from "../styles";
 
+//Ces composants sont utilisés pour le header d'une interface
+
+//Composant Icône de droite
 export const IconDroit = (props) => {
   const { nomIcone, navig } = props; //Titre du navbar
   return (
     <TouchableOpacity
       onPress={() => {
         console.log({navig});
+        //navig
       }}
     >
       <Icon
         name={nomIcone}
         size={33}
-        color={COLORS.noirFonce}
+        color={COULEURS.noirFonce}
         style={{ width: 45 }}
       />
     </TouchableOpacity>
   );
 };
 
+//Composant Icône de gauche
 export const IconRetour = () => {
   const navigation = useNavigation();
   return (
     <View
       style={[
         STYLES._row,
-        STYLES._centrerAligner,
-        { marginLeft: 10, marginRight: 65 },
+        STYLES._centrerAligner
       ]}
     >
       <TouchableOpacity
@@ -42,7 +46,7 @@ export const IconRetour = () => {
         <Icone
           name="chevron-left"
           size={43}
-          color={COLORS.noir}
+          color={COULEURS.noir}
           style={{ width: 45 }}
         />
       </TouchableOpacity>

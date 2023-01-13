@@ -1,4 +1,4 @@
-const COLORS = {
+const COULEURS = {
     //Bleu et ses variantes
     bleu: '#55BCF6',
     bluePale: '#0795B0',
@@ -29,4 +29,4 @@ const COLORS = {
     
 }
 
-export default COLORS;
+export default COULEURS;

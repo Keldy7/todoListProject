@@ -1,8 +1,8 @@
-import { SIZES } from ".";
+import { SIZES } from "."
 
-export const regular = "Roboto-Regular";
-export const bold = "Roboto-Bold";
-export const medium = "Roboto-Medium";
+const regular = "Roboto-Regular";
+const bold = "Roboto-Bold";
+const medium = "Roboto-Medium";
 
 
 export const FONTS = {
@@ -31,7 +31,7 @@ export const FONTS = {
         lineHeight: 22
     },
     h5: {
-        fontFamily: "Roboto-Regular",
+        //fontFamily: "Roboto-Regular",
         fontSize: SIZES.h5,
         lineHeight: 20
     },

@@ -1,12 +1,10 @@
-
-import { Platform } from "react-native";
-import { COLORS, SIZES } from "../constants"
+import { COULEURS, SIZES } from "../constants"
 import { FONTS } from "../constants/fonts";
 
 const STYLES = {
   _container: {
     width: "100%",
-    backgroundColor: COLORS.blancPale
+    backgroundColor: COULEURS.blancPale
   },
 
   _centrerAligner: {
@@ -20,10 +18,17 @@ const STYLES = {
   },
 
   _titre: {
-    color: COLORS.bluePale,
+    color: COULEURS.bluePale,
     fontWeight: "bold",
     ...FONTS.h1,
     lineHeight: 36
+  },
+
+  _msgErreur: {
+    color: COULEURS.rouge,
+    fontSize: SIZES.font,
+    fontWeight: "bold",
+    textAlign: 'center'
   },
 
   _logo: {
@@ -49,7 +54,7 @@ const STYLES = {
     padding: 2 * SIZES.spacing,
     flexDirection: "row",
     paddingHorizontal: SIZES.spacing,
-    backgroundColor: COLORS.bluePale,
+    backgroundColor: COULEURS.bluePale,
     borderRadius: SIZES.radius,
     marginBottom: SIZES.spacing,
   },
@@ -61,7 +66,7 @@ const STYLES = {
   },
 
   _formInputTitre: {
-    color: COLORS.bluePale,
+    color: COULEURS.bluePale,
 	  fontSize: SIZES.font,
 	  fontWeight: "bold",
   },
@@ -69,19 +74,19 @@ const STYLES = {
   _formInputTexte: {
     flex: 1,
     padding: SIZES.spacing,
-    color: COLORS.noir,
+    color: COULEURS.noir,
     fontSize: 16,
     borderWidth: 1.5,
-    borderColor: COLORS.jauneOr,
+    borderColor: COULEURS.jauneOr,
     borderRadius: SIZES.radius,
-    backgroundColor: COLORS.blancCasse
+    backgroundColor: COULEURS.blancCasse
 
   },
 
   _grid: {
     height: 125,
-    backgroundColor: COLORS.blanc,
-    borderRadius: 10,
+    backgroundColor: COULEURS.blanc,
+    borderRadius: SIZES.spacing,
     margin: 4,
   },
 
@@ -91,7 +96,7 @@ const STYLES = {
   },
 
   _sectionDetailTache: {
-    paddingTop: SIZES.spacing,
+    paddingTop: 0,
     paddingBottom: SIZES.spacing
   },
 
@@ -110,7 +115,27 @@ const STYLES = {
     flexDirection:'row',
     flexWrap: "wrap",
     gap: '1rem',
+  },
+
+  _item: {
+    backgroundColor: COULEURS.grisClair,
+    padding: 15,
+    borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 13,
+  },
+
+  _itemLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  _itemText: {
+    maxWidth: "80%",
   }
+  
 };
 
 export default STYLES;

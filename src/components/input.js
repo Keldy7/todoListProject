@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, Text, TextInput } from 'react-native'
-import { COLORS, SIZES } from '../constants'
+import { COULEURS, SIZES } from '../constants'
 import STYLES from '../styles'
 
+//Composant Zone de saisie
 const ZoneDeSaisie = ({label, ...props}) => {
     return (
         <View style = {{ margin: '3%'}}>
@@ -11,11 +12,24 @@ const ZoneDeSaisie = ({label, ...props}) => {
                 <TextInput
                     style = {STYLES._formInputTexte}
                     {...props}
-                    placeholderTextColor = {COLORS.noirGris}
+                    placeholderTextColor = {COULEURS.noirGris}
                 />
             </View>
         </View>
   )
 }
+
+// const ZoneDeSaisieModifiable = ({...props}) => {
+//     return (
+//         <View style = {{ margin: '3%'}}>
+//             <View style = {STYLES._formInput}>
+//                 <TextInput
+//                     style = {[STYLES._formInputTexte, {...FONTS.h1}]}
+//                     {...props}
+//                 />
+//             </View>
+//         </View>
+//   )
+// }
 
 export default ZoneDeSaisie

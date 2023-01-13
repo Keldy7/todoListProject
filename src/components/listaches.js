@@ -1,53 +1,61 @@
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import React from "react"
-import { COLORS, DONNEES } from "../constants"
+import { useSelector,useDispatch } from "react-redux";
+import { COULEURS } from "../constants"
 import Icon from "@expo/vector-icons/MaterialCommunityIcons"
-//import Checkbox from 'expo-checkbox'
-import STYLES from "../styles"
 import { useNavigation } from "@react-navigation/native"
+import STYLES from "../styles"
+import { ajouterTacheCourante } from "../redux/tacheCourante.reducer";
 
-
+//Composant listant toutes les tâches enregistrées dans l'app
 const Listing = () => {
   const navigation = useNavigation(); 
-  //const [cocher, setCocher] = useState(false);
+
+  const dispatch = useDispatch();
+  const listeTaches = useSelector(state => state.taches.taches);
+  const lesTaches = listeTaches.filter(tache => tache.statut)
+  
+  const AucuneTache = () =>(
+    <View style = {{ alignItems: 'center', marginBottom: 10 }}>
+      <Text style = {[STYLES._formInputTitre, {color: COULEURS.noir, fontWeight: "normal"}]}>Aucune tâche</Text>
+    </View>
+  )
+
+  const AfficherTache = (tache) => {
+    //ajouter une tache courante dans le state
+    dispatch(ajouterTacheCourante(tache));
+    navigation.navigate('Détails');
+  };
+
   return (
-    <View style={{ paddingTop: 15 }}>
+    <View style = {{ paddingTop: 15 }}>
       <FlatList
-        data={DONNEES}
-        renderItem={({ item }) => (
+        data = {lesTaches}
+        ListEmptyComponent = { AucuneTache }
+        renderItem = {({ item }) => (
           <TouchableOpacity
-            style={styles.item}
-            onPress={() => navigation.navigate('Détails')}
+            style = {STYLES._item}
+            onPress = {() =>
+              AfficherTache(item)
+            }
           >
-            <View style={styles.itemLeft}>
+            <View style = {STYLES._itemLeft}>
               <View>
                 <Icon
-                  name="notebook-outline"
-                  size={40}
-                  color={COLORS.jauneOr}
-                  style={{ width: 45 }}
+                  name = "notebook-outline"
+                  size = {40}
+                  color = {COULEURS.jauneOr}
+                  style = {{ width: 50 }}
                 />
-                {/* <Checkbox
-                  value={cocher}
-                  onValueChange={setCocher}
-                  style={{ alignSelf: 'center' }}
-                  color={cocher ? COLORS.jauneOr : undefined}
-                /> */}
               </View>
-                <Text style={styles.itemText}>{item.titre}</Text>
+                <Text style = {STYLES._itemText}>{item.titreTache}</Text>
             </View>
             <View>
               <Icon
-                name="chevron-right"
-                size={43}
-                color={COLORS.bluePale}
-                style={{ width: 45 }}
+                name = "chevron-right"
+                size = {43}
+                color = {COULEURS.bluePale}
+                style = {{ width: 45 }}
               />
             </View>
           </TouchableOpacity>
@@ -57,23 +65,6 @@ const Listing = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  item: {
-    backgroundColor: COLORS.grisClair,
-    padding: 15,
-    borderRadius: 10,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 13,
-  },
-  itemLeft: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  itemText: {
-    maxWidth: "80%",
-  },
-});
+
 
 export default Listing;
