@@ -7,10 +7,11 @@ import STYLES from "../styles";
     Composant Bouton qui a pour props le texte à afficher sur le bouton
     et l'interface à afficher lorsque le bouton est actionné
 */
-const Bouton = props => {
-  const {btn_texte, btn_press} = props;
+const Bouton = ({btn_texte, btn_press, ...props}) => {
+  
   return (
         <TouchableOpacity
+            {...props}
             onPress = {btn_press}
             style = {[STYLES._btn, STYLES._centrerAligner]}
         >

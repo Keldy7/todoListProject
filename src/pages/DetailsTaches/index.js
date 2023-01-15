@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from "react";
-import { View, Text, SafeAreaView, ScrollView, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, SafeAreaView, ScrollView, TextInput, TouchableOpacity } from "react-native";
 import Icon from "@expo/vector-icons/Entypo";
 import Ionicon from "@expo/vector-icons/Ionicons";
 import Icone from "@expo/vector-icons/MaterialCommunityIcons";
@@ -49,7 +49,7 @@ const DetailsTaches = () => {
     });
 
     //Les données à afficher dans la liste déroulante
-    const data = [
+    const statusValeurs = [
         {id:'1', value:'Non demarrée'},
         {id:'2', value:'En cours'},
         {id:'3', value:'Terminée'},
@@ -96,13 +96,14 @@ const DetailsTaches = () => {
 
     const dispatch = useDispatch();
     const liste = useSelector(state => state.taches.taches);
-    
+    console.log(liste)
      // On recupère tacheCourante depuis notre state pour l'afficher
      const tacheCourante = useSelector(
         (state) => state.tacheCourante.tacheCourante
     );
 
     //Les setters
+    const [erreur, setErreur] = useState(false);
     const [edit, setEdit] = useState(false);
     const [titre, setTitre] = useState("");
     const [description, setDescription] = useState("");
@@ -119,6 +120,13 @@ const DetailsTaches = () => {
             dateF: moment(selectedDateFin).format("DD/MM/YYYY"),
             statut: statut,
         };
+
+    // if ((dateDebut > dateFin) || (titre === "") || (dateDebut === "" || dateFin === "")) { 
+    //     setErreur(true);
+    //     console.log("Les valeurs des champs doivent être correctement saisies")
+    // } else {
+    //     setErreur(false);
+
         try {
 
             await AsyncStorage.setItem(
@@ -129,14 +137,11 @@ const DetailsTaches = () => {
             //Tâche enregistrée, on affiche la page de listing des tâches
             dispatch(modifierTache(tacheModifier));
             navigation.navigate("ListeTâches");
-            console.log("Liste complète des tâches: ",liste)
 
-            //Dispatch a reducer of update task
-
-        }catch (e) {
+        } catch (e) {
             console.log("Erreur de modification: ",e);
         }
-    }
+    };
 
     return (
         <SafeAreaView style = {[STYLES._container, { paddingTop: 10 }]}>
@@ -247,8 +252,7 @@ const DetailsTaches = () => {
                     <View>
                         <SelectList 
                             setSelected = {(val) => setStatut(val)} 
-                            data = {data}
-                            //save = {(val) => setSelected(val)}
+                            data = {statusValeurs}
                             search = {false}
                             boxStyles = {{ borderWidth: 1.5, borderColor: COULEURS.jauneOr, marginLeft: SIZES.base }}
                             dropdownStyles = {{ marginLeft: SIZES.base  }}
@@ -289,6 +293,11 @@ const DetailsTaches = () => {
                 )
             }
         </View>
+            {/* {
+                erreur && (
+                    <Bouton btn_texte = {"Modifier"} btn_press = {ModifierTache} />
+                ) 
+            } */}
             {
                 edit && (
                     <Bouton btn_texte = {"Modifier"} btn_press = {ModifierTache} />

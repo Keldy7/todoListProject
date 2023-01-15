@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView, View } from "react-native";
+import { SafeAreaView, ScrollView, Text, View } from "react-native";
 import React from "react";
 import { Avatar } from "react-native-paper";
 import { COULEURS, SIZES } from "../../constants";
@@ -16,10 +16,16 @@ import Section from "../../components/section";
           />
         </View>
         <ScrollView>
-          <Section titreSection = {"Profil"} iconSection = {"account"} />
-          <Section titreSection = {"Aide"} iconSection = {"help-circle-outline"}/>
-          <Section titreSection = {"Confidentialité et Politique"} iconSection = {"security"}/>
-          <Section titreSection = {"Partage TimeToDo"} iconSection = {"share-variant-outline"}/>
+          <View>
+            <Section titreSection = {"Profil"} iconSection = {"account"} />
+            <Section titreSection = {"Aide"} iconSection = {"help-circle-outline"}/>
+            <Section titreSection = {"Confidentialité et Politique"} iconSection = {"security"}/>
+            <Section titreSection = {"Partage TimeToDo"} iconSection = {"share-variant-outline"}/>
+          </View>
+            
+          <View style = {[STYLES._centrerAligner, { paddingTop: 25 }]}>
+            <Text style = {{fontSize: 10, fontStyle: "italic"}}> ©Copyrigth Version 1.0 __{new Date().getFullYear()}__</Text> 
+          </View>
         </ScrollView>
       </SafeAreaView>
     );

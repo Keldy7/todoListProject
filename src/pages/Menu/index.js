@@ -50,6 +50,8 @@ const Menu = ({navigation}) => {
           <Listing />
         </View>
       </View>
+      <Text style = {{fontSize: 11.5, top: 150, textAlign:'center'}}>Réalisée par Kouassy Bessé Aude & Kouassi Koua Franck</Text> 
+
     </SafeAreaView>
   );
 };

@@ -36,6 +36,13 @@ const CreerTaches = () => {
     });
   })
 
+  const [erreur, setErreur] = useState(false);
+
+  const [titre, setTitre] = useState("");
+  const [description, setDescription] = useState("");
+  const [dateDebut, setDateDebut] = useState("");
+  const [dateFin, setDateFin] = useState("");
+
   // Gestion de la date de debut
   const [calendrierDebutVisible, setCalendrierDebutVisible] = useState(false);
   const [selectedDateDebut, setSelectedDateDebut] = useState();
@@ -76,13 +83,9 @@ const CreerTaches = () => {
   };
 
 
-  const [titre, setTitre] = useState("");
-  const [description, setDescription] = useState("");
-  const [dateDebut, setDateDebut] = useState("");
-  const [dateFin, setDateFin] = useState("");
-
   const dispatch = useDispatch();
   const liste = useSelector(state => state.taches.taches);
+  
   
   const CreerNewTache = async () => {
 
@@ -97,6 +100,11 @@ const CreerTaches = () => {
       statut: "Non demarrée"
     };
 
+    // if ((dateDebut > dateFin) || (titre === "") || (dateDebut === "" || dateFin === "")) { 
+    //   //setErreur(true);
+    //   // <Text style = {STYLES._msgErreur}>  Les valeurs des champs doivent être correctement saisies </Text>
+    //   console.log("Les valeurs des champs doivent être correctement saisies")
+    // } else {
     //On tente d'enregistrer une tâche
     try {
       await AsyncStorage.setItem(
@@ -108,11 +116,6 @@ const CreerTaches = () => {
       dispatch(ajouterTache(nouvelleTache));
       navigation.navigate("ListeTâches");
 
-      setDateDebut("");
-      setDateFin("");
-      setTitre("");
-      setDescription("");
-
     } catch (e) {
       console.log("Erreur d'ajout de tâches: ",e);
     }
@@ -121,7 +124,7 @@ const CreerTaches = () => {
 
   return (
     <SafeAreaView style={[STYLES._container]}>
-      <ScrollView style={{ padding: SIZES.padding }}>
+      <ScrollView style={{ padding: SIZES.padding - 7 }}>
         <ZoneDeSaisie
           label={"Nom de la tâche"}
           placeholder={"Ex: Courses à Bon Prix"}
@@ -139,7 +142,7 @@ const CreerTaches = () => {
               <View style={STYLES._row}>
                 <TextInput
                   editable = {false}
-                  style = {[STYLES._formInputTexte, { flex: 0, width: 110}]}
+                  style = {[STYLES._formInputTexte, { flex: 0, width: 106}]}
                   placeholderTextColor = {COULEURS.noirGris}
                   placeholder = "14/01/2023"
                   onChangeText = {(dateDebut) => setDateDebut(dateDebut)}
@@ -177,7 +180,7 @@ const CreerTaches = () => {
 
               <View style={STYLES._row}>
                 <TextInput
-                  style = {[STYLES._formInputTexte, { flex: 0, width: 110}]}
+                  style = {[STYLES._formInputTexte, { flex: 0, width: 106}]}
                   placeholderTextColor = {COULEURS.noirGris}
                   placeholder = "15/01/2023"
                   onChangeText={(dateFin) => setDateFin(dateFin)}
@@ -209,24 +212,32 @@ const CreerTaches = () => {
             </View>
           </View>
         </View>
+        {/* <Bouton  btn_texte = {"Créer"} btn_press = {CreerNewTache} disabled = {true} activeOpacity={0.1} /> */}
+            {/* <Bouton btn_texte = {"Créer"} btn_press = {CreerNewTache} /> */}
 
         <ZoneDeSaisie
-          style={[STYLES._formInputTexte, { height: 150 }]}
+          style={[STYLES._formInputTexte, { height: 140 }]}
           label={"Description"}
           placeholder={"Ex: Courses à Bon Prix"}
           multiline={true}
-          numberOfLines={4}
+          numberOfLines={3}
           onChangeText={(descriptionTache) => {setDescription(descriptionTache)}}
         />
 
         {/* Afficher le bouton de création lorsque les zones de saisies sont correctes */}
         {
-          (dateDebut > dateFin) || (titre == "") || (dateDebut == "" || dateFin == "") ? (
-              <Text style = {STYLES._msgErreur}>  Les valeurs des champs doivent être correctement saisies </Text>
-          ) : (
-            <Bouton btn_texte = {"Créer"} btn_press = {CreerNewTache} />
-          )
+          // ((dateDebut > dateFin) || (titre === "") || (dateDebut === "" || dateFin === "")) ? (
+          //   <Text style = {STYLES._msgErreur}>  Les valeurs des champs doivent être correctement saisies </Text>
+          // ) : (
+          //   <Bouton btn_texte = {"Créer"} btn_press = {CreerNewTache} />
+          // )
         }
+        {/* { erreur && 
+        <Text style = {STYLES._msgErreur}>Les valeurs des champs doivent être correctement saisies </Text>
+        } */}
+        <Bouton btn_texte = {"Créer"} btn_press = {CreerNewTache} />
+
+
       </ScrollView>
     </SafeAreaView>
   );
