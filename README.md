@@ -40,3 +40,10 @@ expo start
 ```
 &nbsp;
 NB: **L'INTÉGRALITÉ DU CODE SOURCE EST SUR LA BRANCHE *aude***
+&nbsp;
+&nbsp;
+## Rendu final de l'application
+&nbsp;
+Sur Iphone
+
+![Enregistrement de l’écran 2023-01-13 à 14 26 54](https://user-images.githubusercontent.com/93558050/215877260-cad20381-4049-4c0c-a277-ee29d32f6ec9.gif)
